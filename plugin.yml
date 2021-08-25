@@ -1,0 +1,21 @@
+name: BosterTraining
+main: net.Boster.Training.Main
+version: 1.0.0
+author: Bosternike
+commands:
+  training:
+    aliases: [trainings]
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

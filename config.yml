@@ -1,0 +1,143 @@
+# This plugin creator is Bosternike (Discord: Bosternike#7428).
+#
+# To type from the new line - use "%n%".
+#
+# PERMISSIONDS and COMMANDS:
+# Permission for command '/training help' (USER) - boster.training.help
+# Permission for command '/training help' (ADMIN) - boster.training.help.admin
+#
+# Permission for Admin commands - boster.training.admin
+#
+# Permission for User commands '/training play', '/training join', '/training leave' - boster.training.user
+
+Defaults:
+  BlocksMaterial: RED_SANDSTONE
+  Blocks: 128
+  voidPos-Y: 110
+
+ArenasMenu:
+  Title: '&7Training Arenas page N%page%'
+  # GUI update delay in ticks (1 second = 20 ticks). 
+  UpdateDelay: 5
+  Close: '&cClose the GUI'
+  Statuses:
+    Able: '&aAble'
+    Unable: '&cUnable'
+  Format:
+    Name: '&fArena&7: &d%name%'
+    Lore:
+    - ''
+    - '&fSerial number&7: &6%arena%'
+    - ''
+    - '&fStatus&7: &d%status%'
+    - ''
+    Lore_addition_able:
+    - '&7Click to join the Arena!'
+
+Settings:
+  Prefix: '&d&lTraining &8|'
+  # Does the user need permission?
+  permission_required: false
+  JoinGameSound: ENTITY_ENDERMEN_TELEPORT:1
+  Scoreboard:
+    Enabled: true
+  Economy:
+    Enabled: true
+    FinishActions:
+      Withdraw: 0
+      Deposit: 10
+    LeaveActions:
+      Withdraw: 0
+      Deposit: 0
+    DeathActions:
+      Withdraw: 1
+      Deposit: 0
+  TopHologram:
+    Title: '&fTop &610 &fplayers&7:'
+    Format: '&6%place%&7. &f%player% &d%time%'
+  
+Messages:
+  notPermitted: '%prefix% &cYou are not permitted to do this!'
+  nullArguments: '%prefix% &fUse command arguments! Help &7- &d/training help'
+  wrongSyntax: '%prefix% &fInvalid command syntax&7: &c%syntax%'
+  reload: '%prefix% &fThe plugin has been reloaded!'
+  setLobby: '%prefix% &fThe lobby location has been &asuccessfully &fset!'
+  help_user: 
+  - '&f'
+  - '&6&l > &fPlay now &7- &d/training play'
+  - '&6&l > &fJoin the Arena &7- &d/training join [arena]'
+  - '&6&l > &fArenas GUI &7- &d/training arenas'
+  - '&6&l > &fLeave the game &7- &d/training leave'
+  - '&f'
+  help_admin:
+  - '&f'
+  - '&d&l > &fReload the plugin &7- &d/training reload'
+  - '&f'
+  - '&6&l > &fPlay now &7- &d/training play'
+  - '&6&l > &fJoin the Arena &7- &d/training join [arena]'
+  - '&6&l > &fArenas GUI &7- &d/training arenas'
+  - '&6&l > &fLeave the game &7- &d/training leave'
+  - '&f'
+  - '&a&l > &fCreate an Arena &7- &d/training create [arena]'
+  - '&c&l > &fDelete the Arena &7- &d/training delete [arena]'
+  - '&5&l > &fSet the lobby location &7- &d/training setLobby'
+  - '&9&l > &fSpawn best players hologram &7- &d/training spawnHolo [name]'
+  - '&4&l > &fDelete best players hologram &7- &d/training deleteHolo [name]'
+  - '&f'
+  - '&b&l > &fSet the Arena name &7- &d/training setname [name] [arena]'
+  - '&b&l > &fУстановка спавна &7- &d/training setspawn [arena]'
+  - '&b&l > &fSet the &d1st &ffinal position &7- &d/training setpos-1 [arena]'
+  - '&b&l > &fSet the &d2nd &ffinal position &7- &d/training setpos-2 [arena]'
+  - '&b&l > &fSet the &d1st &fregion position &7- &d/training setregion-1 [arena]'
+  - '&b&l > &fSet the &d2nd &fregion position &7- &d/training setregion-2 [arena]'
+  - '&f'
+  admin:
+    arenaNull: '%prefix% &fArena &c%name% &fdoes not exist!'
+    arenaExists: '%prefix% &fArena &c%arg% &fdoes exist yet!'
+    create:
+      usage: '%prefix% &fCreate an Arena &7- &d/training create [name]'
+      success: '%prefix% &fArena &d%name% &fhas just been created!'
+    delete:
+      usage: '%prefix% &fDelete the Arena &7- &d/training delete [arena]'
+      success: '%prefix% &fArena &d%name% &fhas been removed!'
+    setName:
+      usage: '%prefix% &fSet the Arena name &7- &d/training setname [name] [arena]'
+      success: '%prefix% &fNow Arenas &6%arena% &fhas the following name&7: &d%name%&f!'
+    setSpawn:
+      usage: '%prefix% &fSet the player spawn &7- &d/training setspawn [arena]'
+      success: '%prefix% &fThe spawn location has been set for Arena &d%arena%&f!'
+    setPos:
+      usage: '%prefix% &fSet the &d1&8/&d2 &ffinal position &7- &d/training &f&nsetpos-1&7/&f&nsetpos-2&f [arena]'
+      noPos: '%prefix% &fThe position name must be &dsetpos-1 &for &dsetpos-2&7.'
+      success: '%prefix% &fThe final position &d%pos% &flocation has been set for Arena &6%arena%&f!'
+    setRegion:
+      usage: '%prefix% &fSet the &d1&8/&d2 &fregion position &7- &d/training &f&nsetregion-1&7/&f&nsetregion-2&f [arena]'
+      noPos: '%prefix% &fThe position name must be &dsetregion-1 &for &dsetregion-2&7.'
+      success: '%prefix% &fThe region position &d%pos% &fhas been saved for Arena &6%arena%&f!'
+    spawnHolo:
+      usage: '%prefix% &fUsage &8- &d/training spawnholo [name]'
+      alreadyExists: '%prefix% &fHologram with name &c%name% &falready exists.'
+      success: '%prefix% &fHologram with name &d%name% &fhas been created.'
+    deleteHolo:
+      usage: '%prefix% &fUsage &8- &d/training deleteholo [name]'
+      doesNotExist: '%prefix% &fHologram with name &c%name% &fdoes not exist.'
+      success: '%prefix% &fHologram with name &d%name% &fhas been deleted.'
+  isInGame: '%prefix% &fYou are in a game yet!'
+  notInGame: '%prefix% &fYou are not in a game!'
+  commandsDenied: '%prefix% &fYou are unable to use commands during the training! Use &c/training leave&f to leave the training!'
+  leave: 
+    sound: BLOCK_NOTE_PLING:1
+    message: '%prefix% &fYou have &6left &fthe training!'
+  play: 
+    noArenas: '%prefix% &cSorry, but there are no able Arenas at the moment :('
+    success: '%prefix% &fYou have &ajoined &fto the random Arena!'
+  join:
+    usage: '%prefix% &fJoin the Arena &7- &d/training join [arena]'
+    arenaIsUsed: '%prefix% &fUnfortunately, Arena &c%arena% &fis used at the moment&7.'
+    success: '%prefix% &fYou have joined the Arena &7- &d%arena_name%&7. &fHave a good training!'
+  isNotInRegion: '%prefix% &fThe block has not been placed, thats why the placed block location is not in region!'
+  
+      
+      
+      
+      
